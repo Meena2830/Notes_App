@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// src/App.tsx
+import React from "react";
+import NoteList from "./components/NoteList";
+import NoteForm from "./components/NoteForm";
+import { NotesProvider } from "./context/NotesContext";
+import "./App.css";
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NotesProvider>
+      <div>
+        <h1>Notes App</h1>
+        <NoteForm />
+        <NoteList />
+      </div>
+    </NotesProvider>
   );
-}
+};
 
 export default App;
